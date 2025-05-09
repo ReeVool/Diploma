@@ -1,0 +1,58 @@
+﻿<Window x:Class="Diploma.ViewModels.ProductsVM.ProdutsAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diploma.ViewModels.ProductsVM"
+        mc:Ignorable="d"
+        Title="Информация о продукции"
+        SizeToContent="Height"
+        Width="300"
+        Icon="/Images/file-text.png"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        >
+    
+    <StackPanel>
+        <Label Content="Наименование:"/>
+        <TextBox x:Name="NameBox"/>
+
+        <Label Content="Артикул:"/>
+        <TextBox x:Name="ArticleBox"
+                 PreviewTextInput="EmailBox_PreviewTextInput"
+                 />
+
+        <Label Content="Тип:"/>
+        <TextBox x:Name="TypeBox"/>
+
+        <Label Content="Цена:"/>
+        <TextBox x:Name="PriceBox"
+                 PreviewTextInput="EmailBox_PreviewTextInput"
+                 />
+
+        <Label Content="Общее количество:"/>
+        <TextBox x:Name="TotalQuantityBox"
+                 PreviewTextInput="EmailBox_PreviewTextInput"
+                 />
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0, 10"
+        >
+            <Button x:Name="SaveBut"
+                    Click="SaveBut_Click"
+                    ToolTip="Сохранить данные"
+            >
+                <Image Source="/Images/save.png"/>
+            </Button>
+            <Button x:Name="CancelBut"
+                    Click="CancelBut_Click"
+                    ToolTip="Отменить действие"
+                    Style="{DynamicResource WarningButton}"
+            >
+                <Image Source="/Images/x.png"/>
+            </Button>
+        </StackPanel>
+    </StackPanel>
+
+</Window>

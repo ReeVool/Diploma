@@ -1,0 +1,202 @@
+﻿<Window x:Class="Diploma.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diploma"
+        mc:Ignorable="d"
+        
+        Title="ФармаЛог"
+        Height="600"
+        Width="1000"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        Icon="/Images/PharmaLog.png"
+        Focusable="True"
+        FocusVisualStyle="{x:Null}"
+        
+        Loaded="Window_Loaded"
+        Closing="Window_Closing"
+        PreviewKeyDown="Window_PreviewKeyDown"
+        >
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/GlobalStyles.xaml"/>
+                <ResourceDictionary Source="/ComboBoxStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid x:Name="ContentContainer">
+        <!--ОСНОВНАЯ ЧАСТЬ-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" Name="SidePanelColumn"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--БОКОВАЯ ПАНЕЛЬ-->
+            <Border Grid.Column="0"
+                    x:Name="Sidebar"
+                    Width="0"
+                    MinWidth="0"
+                    MaxWidth="200"
+                    Background="#f0f0f0"
+            >
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="Вкладки"
+                                   FontSize="18"
+                                   Margin="0, 5, 0, 0"
+                                   HorizontalAlignment="Center"
+                                   FontWeight="SemiBold"
+                        />
+                        <Button x:Name="ManufacturersBut"
+                            Click="ManufacturersBut_Click"
+                            ToolTip="Открыть вкладку Производители"
+                            >
+                            <StackPanel Style="{DynamicResource StackPanelInButtons}">
+                                <Image Source="Images/factory.png"/>
+                                <TextBlock Text="Производители"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="ProductsBut" 
+                              Click="ProductsBut_Click"
+                              ToolTip="Открыть вкладку Продукция"
+                            >
+                            <StackPanel Style="{DynamicResource StackPanelInButtons}">
+                                <Image Source="Images/briefcase-medical.png"/>
+                                <TextBlock Text="Продукция"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="ClientsBut"
+                              Click="ClientsBut_Click"
+                              ToolTip="Открыть вкладку Клиенты"
+                            >
+                            <StackPanel Style="{DynamicResource StackPanelInButtons}">
+                                <Image Source="Images/user.png"/>
+                                <TextBlock Text="Клиенты"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="InvoiceBut"
+                              Click="InvoiceBut_Click"
+                              ToolTip="Открыть вкладку Счет-фактуры"
+                            >
+                            <StackPanel Style="{DynamicResource StackPanelInButtons}">
+                                <Image Source="Images/file-text.png"/>
+                                <TextBlock Text="Счет-фактуры"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="QuerriesToBuyBut"
+                                Click="QuerriesToBuyBut_Click"
+                                ToolTip="Открыть вкладку Запросы на закупку"
+                            >
+                            <StackPanel Style="{DynamicResource StackPanelInButtons}">
+                                <Image Source="Images/shopping-basket.png"/>
+                                <TextBlock Text="Запросы на закупку"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="PharmacyBut"
+                                Click="PharmacyBut_Click"
+                                ToolTip="Открыть вкладку Аптеки"
+                            >
+                            <StackPanel Style="{DynamicResource StackPanelInButtons}">
+                                <Image Source="Images/hospital.png"/>
+                                <TextBlock Text="Аптеки"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="Workers"
+                                Click="Workers_Click"
+                                ToolTip="Открыть вкладку Счет-фактуры"
+                            >
+                            <StackPanel Style="{DynamicResource StackPanelInButtons}">
+                                <Image Source="Images/user.png"/>
+                                <TextBlock Text="Сотрудники"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+
+                    <StackPanel VerticalAlignment="Bottom">
+                        <Button x:Name="AccountSetingsBut"
+                              Click="AccountSetingsBut_Click"
+                              ToolTip="Перейти в личный кабинет"
+                            >
+                            <StackPanel Style="{DynamicResource StackPanelInButtons}">
+                                <Image Source="Images/circle-user.png"/>
+                                <TextBlock Text="Личный кабинет"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="AboutUsBut"
+                              Click="AboutUsBut_Click"
+                              ToolTip="Открыть вкладку О нас"
+                            >
+                            <StackPanel Style="{DynamicResource StackPanelInButtons}">
+                                <Image Source="Images/info.png"/>
+                                <TextBlock Text="О нас"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="ToMainBut"
+                                  Click="ToMainBut_Click"
+                                  ToolTip="Перейти на начальную вкладку"
+                                >
+                            <StackPanel Style="{DynamicResource StackPanelInButtons}">
+                                <Image Source="Images/house.png"/>
+                                <TextBlock Text="Начальная вкладка"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!--РАБОЧАЯ ОБЛАСТЬ-->
+            <Grid Grid.Column="1">
+                <!--КНОПКИ ВЗАИМОДЕСТВИЯ-->
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Panel.ZIndex="1"
+                >
+                    <Button ToolTip="Скрыть/показать боковую панель (Ctrl+B)"
+                            Click="TogglePanel_Click"
+                    >
+                        <Image Source="Images/panel-left-dashed.png"/>
+                    </Button>
+
+                    <Button ToolTip="Вернуться назад (Ctrl+←/↑)"
+                            Click="Back_Click"
+                    >
+                        <Image Source="Images/corner-up-left.png"
+                               Width="19"
+                        />
+                    </Button>
+
+                    <Button ToolTip="Вернуться вперед  (Ctrl+→/↓)"
+                            Click="Go_Click"
+                    >
+                        <Image Source="Images/corner-up-right.png"
+                               Width="19"
+                        />
+                    </Button>
+                </StackPanel>
+
+                <!--КОНТЕЙНЕР ДЛЯ ВКЛАДОК-->
+                <Frame Panel.ZIndex="0"
+                       x:Name="PageContainer"
+                       NavigationUIVisibility="Hidden"
+                />
+            </Grid>
+        </Grid>
+
+    </Grid>
+
+</Window>

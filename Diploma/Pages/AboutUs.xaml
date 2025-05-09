@@ -1,0 +1,93 @@
+﻿<Page x:Class="Diploma.Pages.AboutUs"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diploma.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AboutUs"
+      
+      Loaded="Page_Loaded"
+      Focusable="True"
+      FocusVisualStyle="{x:Null}"
+      >
+
+    <ScrollViewer FocusVisualStyle="{x:Null}"
+                  VerticalScrollBarVisibility="Hidden"
+                  >
+        <Grid Background="White" x:Name="ContentContainer">
+            <Grid Panel.ZIndex="0">
+                <Image Source="/Images/background.png"
+                       Width="auto"
+                       Height="250"
+                       VerticalAlignment="Top"
+                       Stretch="UniformToFill"
+                       />
+            </Grid>
+
+            <StackPanel Margin="0 0 0 100"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Center"
+                        Background="Transparent"
+                        Panel.ZIndex="1"
+                        >
+
+                <StackPanel>
+                    <Image Width="auto"
+                           MinWidth="50"
+                           MaxWidth="240"
+                           Source="/Images/PharmaLog.png"
+                           Margin="0 125 0 0"
+                           >
+                        <Image.Effect>
+                            <DropShadowEffect 
+                                Color="#40000000" 
+                                BlurRadius="30" 
+                                ShadowDepth="7" 
+                                Opacity="0.8"
+                                Direction="270"
+                            />
+                        </Image.Effect>
+                    </Image>
+
+                    <TextBlock Text="Версия: 2.5.0"
+                               HorizontalAlignment="Center"
+                               Margin="0 10 0 0"
+                               Foreground="Gray"
+                               />
+
+                    <TextBlock Style="{DynamicResource Headers}"
+                               Margin="0 10"
+                               HorizontalAlignment="Center"
+                               >
+                            ООО "ФармаЛог"
+                    </TextBlock>
+
+                    <TextBlock HorizontalAlignment="Center"
+                               MinWidth="100"
+                               Width="auto"
+                               MaxWidth="500"
+                               Height="auto"
+                               TextWrapping="Wrap"
+                               FontSize="15"
+                               TextAlignment="Center"
+                               >
+                        ООО "ФармаЛог" — компания, предоставляющая специализированные решения для автоматизации учета и управления процессами в фармацевтической и 
+                        медицинской отраслях. Основная деятельность сосредоточена на комплексном учете данных о производителях, клиентах, аптечных сетях, а также на 
+                        контроле реализации медикаментов и организации закупочных операций.
+                    </TextBlock>
+
+                    <!--
+                    <TextBlock TextAlignment="Center" Margin="0 30">
+                        <Hyperlink NavigateUri="https://www.youtube.com"
+                                   >
+                            Перейти на наш сайт
+                        </Hyperlink>
+                    </TextBlock>
+                    -->
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>

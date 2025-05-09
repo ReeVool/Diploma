@@ -1,0 +1,94 @@
+﻿<Page x:Class="Diploma.Pages.AccountSettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diploma.Pages"
+      xmlns:proj="clr-namespace:Diploma.Authorization"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AccountSettingsPage"
+      >
+
+    <Grid Background="White">
+        <TextBlock Text="Личный кабинет"
+                   Style="{DynamicResource Headers}"
+                   VerticalAlignment="Top"
+                   Margin="150 5"
+                   />
+
+        <ScrollViewer FocusVisualStyle="{x:Null}"
+                      VerticalScrollBarVisibility="Hidden"
+                      >
+            <StackPanel VerticalAlignment="Top"
+                    HorizontalAlignment="Center"
+                    Width="auto"
+                    Margin="0 50 0 0"
+                    >
+            
+                <Image Width="150" Source="/Images/account.png"/>
+            
+                <WrapPanel Orientation="Horizontal" MaxWidth="250">
+                    <TextBlock x:Name="SurnameBox" Style="{DynamicResource Headers}" Margin="5"/>
+                    <TextBlock x:Name="NameBox" Style="{DynamicResource Headers}" Margin="5"/>
+                    <TextBlock x:Name="PatronymicBox" Style="{DynamicResource Headers}" Margin="5"/>
+                </WrapPanel>
+
+                <Label Content="Логин" Foreground="Gray" Margin="0 0 0 -5"/>
+                <TextBlock x:Name="LoginBox" FontSize="15"/>
+            
+                <Label Content="Тип профиля" Foreground="Gray" Margin="0 0 0 -5"/>
+                <TextBlock x:Name="AccountTYpeBox" FontSize="15"/>
+
+                <Label Content="Email" Foreground="Gray" Margin="0 0 0 -5"/>
+                <TextBlock x:Name="EmailBox" FontSize="15"/>
+
+                <Label Content="Номер телефона" Foreground="Gray" Margin="0 0 0 -5"/>
+                <TextBlock x:Name="NumberBox" FontSize="15"/>
+
+                <Label Content="Дата регистрации" Foreground="Gray" Margin="0 0 0 -5"/>
+                <TextBlock x:Name="RegDateBox" FontSize="15"/>
+
+                <Button x:Name="Edit"
+                        Click="Edit_Click"
+                        Margin="0 10"
+                    >
+                    <StackPanel Style="{DynamicResource StackPanelInButtons}">
+                        <Image Source="/Images/pencil.png" />
+                        <TextBlock Text="Редактировать профиль"/>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="DeleteAccount"
+                        Margin="0 30 0 0"
+                        Click="DeleteAccount_Click"
+                        Width="160"
+                    
+                        Style="{DynamicResource WarningButton}"
+                        Foreground="Black"
+                        >
+                    <StackPanel Style="{DynamicResource StackPanelInButtons}" Width="150">
+                        <Image Source="/Images/trash-2.png" />
+                        <TextBlock Text="Удалить профиль"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Button x:Name="Logout"
+                Click="Logout_Click"
+                
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right"
+                Width="100"
+                
+                Style="{DynamicResource WarningButton}"
+                Foreground="Black"
+                >
+            <StackPanel Style="{DynamicResource StackPanelInButtons}" Width="auto">
+                <Image Source="/Images/log-out.png" Width="18"/>
+                <TextBlock Text="Выйти"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Page>

@@ -1,0 +1,68 @@
+﻿<Window x:Class="Diploma.ViewModels.QueriesVM.QueriesAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diploma.ViewModels.QueriesVM"
+        mc:Ignorable="d"
+        Title="Информация о запросе"
+        SizeToContent="Height"
+        Width="300"
+        Icon="/Images/file-text.png"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        >
+
+    <StackPanel>
+        <Label Content="Наименование продукта:"/>
+        <ComboBox x:Name="ProductNameBox"
+                  Template="{DynamicResource ComboBoxTemplate1}" 
+                  DisplayMemberPath="Name"
+                  SelectedValuePath="Id"
+                  />
+
+        <Label Content="Код продукта:"/>
+        <TextBox x:Name="ProductIdBox"
+                 PreviewTextInput="QuantityBox_PreviewTextInput"
+                 IsReadOnly="True"
+                 Text="{Binding ElementName=ProductNameBox, Path=SelectedItem.Id}"
+                 />
+
+        <Label Content="Количество:"/>
+        <TextBox x:Name="QuantityBox"
+                 PreviewTextInput="QuantityBox_PreviewTextInput"
+                 />
+
+        <Label Content="Код аптеки:"/>
+        <ComboBox x:Name="IdPharmacyBox"
+                  Template="{DynamicResource ComboBoxTemplate1}" 
+                  DisplayMemberPath="Id"
+                  SelectedValuePath="Id"
+                  />
+
+        <CheckBox x:Name="IsDoneBox"
+                  Content="Выполнено"
+                  />
+
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0, 10"
+        >
+            <Button x:Name="SaveBut"
+                    Click="SaveBut_Click"
+                    ToolTip="Сохранить данные"
+            >
+                <Image Source="/Images/save.png"/>
+            </Button>
+            <Button x:Name="CancelBut"
+                    Click="CancelBut_Click"
+                    ToolTip="Отменить действие"
+                    Style="{DynamicResource WarningButton}"
+            >
+                <Image Source="/Images/x.png"/>
+            </Button>
+        </StackPanel>
+    </StackPanel>
+
+</Window>
