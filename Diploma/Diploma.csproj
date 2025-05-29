@@ -9,6 +9,7 @@
     <Platforms>AnyCPU</Platforms>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
     <SignAssembly>False</SignAssembly>
+    <ApplicationIcon>Images\PharmaLog.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -56,6 +57,10 @@
 
   <ItemGroup>
     <Page Remove="fyndyk100po200kg.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\PharmaLog.ico" />
   </ItemGroup>
 
   <ItemGroup>
